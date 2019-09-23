@@ -13,13 +13,13 @@ project_disk_path = "F:"
 project_path = "F:\multi-analysis"
 this_path = os.getcwd()
 
-git_com = """
+git_cmd = """
     {0} & \
     cd {1} & \
     git log --author="{2}" --date=short --pretty=format:'"%ad","%s"' >{3}\\log.csv
     """.format(project_disk_path, project_path, author, this_path)
 
-os.system(git_com)
+os.system(git_cmd)
 print("=========== Git Message 下载完毕 ===========")
 msg_buff = []
 
