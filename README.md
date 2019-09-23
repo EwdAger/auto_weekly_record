@@ -6,7 +6,7 @@
 
 ```
 # git 用户名
-author = "ningwenjie"
+author = "ewdager"
 # 项目盘符
 project_disk_path = "F:"
 # 项目路径
@@ -35,7 +35,9 @@ project_path = "F:\multi-analysis"
 
 # 结果(weekly_record.txt)
 
+```
 1. 修复bug
     1.1 修复箱线图未限制小数点的小错误
     1.2 修复组对组未限制小数点的小错误
     1.3 修复删除所有行列后，部分功能报500的bug
+```
