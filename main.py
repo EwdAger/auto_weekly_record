@@ -8,8 +8,11 @@ import os
 import csv
 from datetime import datetime
 
-author = "ningwenjie"
+# git 用户名
+author = "ewdager"
+# 项目盘符
 project_disk_path = "F:"
+# 项目完整路径
 project_path = "F:\multi-analysis"
 this_path = os.getcwd()
 
@@ -38,13 +41,13 @@ start_time = input("从几号后开始的信息（例：2019-9-20）> ")
 start_time = datetime.strptime(start_time, '%Y-%m-%d')
 record_buff = []
 
-print("=========== 该时间后的 msg 条数如下 ===========")
+print("\n=========== 该时间后的 msg 条数如下 ===========")
 for i, v in enumerate(msg_buff):
     if v[0] >= start_time:
         print(i, v[1])
         record_buff.append(v[1])
 
-print("=============================================")
+print("=============================================\n")
 title = input("请输入1级标题（例如：修复bug）> ")
 count = 1
 with open("weekly_record.txt", "w") as f:
@@ -56,6 +59,10 @@ with open("weekly_record.txt", "w") as f:
             f.writelines("    {0}.{1} {2}\n".format(count, i+1, msg_buff[int(v)][1]))
         count += 1
         dis_sele = list(set([i for i in range(len(record_buff))])-set([int(i) for i in msg_index]))
-        title = input("请输入{0}级标题（例如：修复bug）,结束请输入EOF,{1}未被选中> ".format(count, dis_sele))
+        print("\n=========== 余下的 msg 条数如下 ===========")
+        for i in dis_sele:
+            print (i, msg_buff[i][1])
+        print("=============================================\n")
+        title = input("请输入{0}级标题（例如：修复bug）,结束请输入EOF> ".format(count))
 
 f.close()
